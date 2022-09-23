@@ -1,5 +1,6 @@
 $("#digitos").submit(function (event) {
     event.preventDefault()
+    $("#cpfs").empty()
     var cpf = ''
     var digitosOcultos = 0
     $.each($(this).serializeArray(), function (i, field) {
@@ -11,34 +12,24 @@ $("#digitos").submit(function (event) {
         }
     })
 
+    var cpfsValidos = []
     sequenciaPossivel(digitosOcultos).forEach(element => {
+        var digPos = 0
+        var possivelCpf = cpf
         for (i = 0; i < 11; i++) {
-
+            if (possivelCpf.charAt(i) == '*') {
+                possivelCpf = possivelCpf.substring(0, i) + element.charAt(digPos) + possivelCpf.substring(i + 1)
+                digPos++
+            }
         }
-    });
+        if (validaCpf(possivelCpf)) {
+            cpfsValidos.push(possivelCpf)
+        }
+    })
 
-    /*var add = 0
-    for (let i = 0; i < 9; i++) {
-        add += parseInt(cpf.charAt(i)) * (10 - i)
-    }
-    rev = 11 - (add % 11)
-    if (rev == 10 || rev == 11) {
-        rev = 0
-    }
-    if (rev != parseInt(cpf.charAt(9)))
-        return false;*/
-    /* var cpfs = []
- 
-     var possivelCpf = digitos
-     if (possivelCpf.d1 == '') {
-         for (let i = 0; i <= 9; i++) {
-             possivelCpf.d1 = i
- 
-         }
-     }*/
-    console.log(cpf)
-    // console.log(validaCpf('03374801250'))
-    sequenciaPossivel(6)
+    cpfsValidos.forEach(cpf => {
+        $("#cpfs").append("<li>" + cpf + "</li>")
+    })
 })
 
 function validaCpf(cpf) {
