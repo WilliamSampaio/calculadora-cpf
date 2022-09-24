@@ -27,41 +27,64 @@ $('.dig').on('focus', function () {
 })
 
 digitos[1].on('keyup', function () {
-    digitos[2].focus().val('')
+    if (digitos[1].val() != '') {
+        digitos[2].focus().val('')
+    }
 })
 digitos[2].on('keyup', function () {
-    digitos[3].focus().val('')
+    if (digitos[2].val() != '') {
+        digitos[3].focus().val('')
+    }
 })
 digitos[3].on('keyup', function () {
-    digitos[4].focus().val('')
+    if (digitos[3].val() != '') {
+        digitos[4].focus().val('')
+    }
 })
 digitos[4].on('keyup', function () {
-    digitos[5].focus().val('')
+    if (digitos[4].val() != '') {
+        digitos[5].focus().val('')
+    }
 })
 digitos[5].on('keyup', function () {
-    digitos[6].focus().val('')
+    if (digitos[5].val() != '') {
+        digitos[6].focus().val('')
+    }
 })
 digitos[6].on('keyup', function () {
-    digitos[7].focus().val('')
+    if (digitos[6].val() != '') {
+        digitos[7].focus().val('')
+    }
 })
 digitos[7].on('keyup', function () {
-    digitos[8].focus().val('')
+    if (digitos[7].val() != '') {
+        digitos[8].focus().val('')
+    }
 })
 digitos[8].on('keyup', function () {
-    digitos[9].focus().val('')
+    if (digitos[8].val() != '') {
+        digitos[9].focus().val('')
+    }
 })
 digitos[9].on('keyup', function () {
-    digitos[10].focus().val('')
+    if (digitos[9].val() != '') {
+        digitos[10].focus().val('')
+    }
 })
 digitos[10].on('keyup', function () {
-    digitos[11].focus().val('')
+    if (digitos[10].val() != '') {
+        digitos[11].focus().val('')
+    }
 })
 
 btnExemplo.on('click', function (event) {
     digitos[1].val('0')
     digitos[2].val('3')
+    digitos[3].val('')
     digitos[4].val('7')
+    digitos[5].val('')
     digitos[6].val('8')
+    digitos[7].val('')
     digitos[8].val('1')
     digitos[9].val('2')
     digitos[10].val('5')
